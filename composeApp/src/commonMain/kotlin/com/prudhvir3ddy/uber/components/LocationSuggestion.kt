@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Work
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -38,13 +39,13 @@ enum class LocationType {
 private val locationSuggestions = listOf(
     LocationSuggestion(
         name = "Home",
-        address = "1234 Home St",
+        address = "12/34 Home Street",
         icon = Icons.Filled.Home,
         locationType = LocationType.Home
     ),
     LocationSuggestion(
         name = "Work",
-        address = "5678 Work St",
+        address = "Uber Technologies Inc",
         icon = Icons.Filled.Work,
         locationType = LocationType.Work
     ),
@@ -76,9 +77,9 @@ fun LocationSuggestions() {
 
         locationSuggestions.filter { it.locationType == LocationType.Saved || it.locationType == LocationType.Recent }
             .take(2)
-            .forEach { locationSuggestion ->
+            .forEachIndexed { index, locationSuggestion ->
                 LocationSuggestionItem(locationSuggestion)
-                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+                if (index == 0) HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
             }
     }
 }
@@ -89,7 +90,12 @@ fun LocationSuggestionItem(locationSuggestion: LocationSuggestion) {
         Icon(imageVector = locationSuggestion.icon, contentDescription = locationSuggestion.name)
         Column(modifier = Modifier.padding(start = 16.dp)) {
             Text(text = locationSuggestion.name)
-            Text(text = locationSuggestion.address, overflow = TextOverflow.Ellipsis, maxLines = 1)
+            Text(
+                text = locationSuggestion.address,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+                style = MaterialTheme.typography.bodySmall
+            )
         }
     }
 }
