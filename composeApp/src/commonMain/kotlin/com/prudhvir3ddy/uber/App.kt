@@ -3,10 +3,7 @@ package com.prudhvir3ddy.uber
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -35,49 +32,38 @@ fun App() {
                 UberBottomBar(selectedBottomNavigationIndex.value) { index ->
                     selectedBottomNavigationIndex.value = index
                 }
-            },
-            topBar = {
-                UberTopAppBar()
             }
         ) { innerPadding ->
             Box(
                 modifier = Modifier.padding(innerPadding).fillMaxSize(),
             ) {
-                UberContent(selectedBottomNavigationIndex.value)
+                UberContent(
+                    selectedBottomNavigationIndex = selectedBottomNavigationIndex.value,
+                    modifier = Modifier.padding(16.dp)
+                )
             }
         }
     }
 }
 
 @Composable
-fun UberContent(selectedBottomNavigationIndex: Int) {
+fun UberContent(selectedBottomNavigationIndex: Int, modifier: Modifier = Modifier) {
     when (bottomNavigationItems[selectedBottomNavigationIndex].screen) {
         BottomNavigationScreen.Home -> {
-            HomeScreen(Modifier.padding(16.dp))
+            HomeScreen(modifier)
         }
 
         BottomNavigationScreen.Services -> {
-            ServicesScreen()
+            ServicesScreen(modifier)
         }
 
         BottomNavigationScreen.Activity -> {
-            ActivityScreen()
+            ActivityScreen(modifier)
         }
 
         BottomNavigationScreen.Account -> {
-            AccountScreen()
+            AccountScreen(modifier)
         }
     }
-}
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun UberTopAppBar() {
-    TopAppBar(
-        title = {
-            Text(text = "Uber")
-        }
-    )
 }
 

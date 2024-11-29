@@ -10,11 +10,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Today
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 
@@ -23,7 +23,7 @@ fun WhereToComposable(modifier: Modifier = Modifier) {
     Row(
         modifier.fillMaxWidth().background(
             shape = RoundedCornerShape(32.dp),
-            color = Color.DarkGray
+            color = MaterialTheme.colorScheme.tertiaryContainer
         ).padding(12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -44,19 +44,17 @@ fun WhereToComposable(modifier: Modifier = Modifier) {
 private fun LaterChip() {
     Row(
         modifier = Modifier.background(
-            color = Color.Black,
+            color = MaterialTheme.colorScheme.background,
             shape = RoundedCornerShape(32.dp)
         ).padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         Icon(
             imageVector = Icons.Default.Today,
             contentDescription = "Later",
-            tint = Color.White
         )
         Text(
             modifier = Modifier.padding(start = 8.dp),
             text = "Later",
-            color = Color.White,
         )
     }
 }
