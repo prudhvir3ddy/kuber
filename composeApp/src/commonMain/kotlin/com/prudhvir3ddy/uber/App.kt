@@ -35,11 +35,10 @@ fun App() {
             }
         ) { innerPadding ->
             Box(
-                modifier = Modifier.padding(innerPadding).fillMaxSize(),
+                modifier = Modifier.padding(innerPadding).fillMaxSize().padding(horizontal = 16.dp)
             ) {
                 UberContent(
                     selectedBottomNavigationIndex = selectedBottomNavigationIndex.value,
-                    modifier = Modifier.padding(16.dp)
                 )
             }
         }
