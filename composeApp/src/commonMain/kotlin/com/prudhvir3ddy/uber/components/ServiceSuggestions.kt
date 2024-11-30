@@ -22,28 +22,42 @@ data class ServiceMini(
     val descriptionEmoji: String,
     val imageLink: String,
     val isPromo: Boolean = false,
+    val serviceType: ServiceType
 )
+
+enum class ServiceType {
+    Shuttle,
+    Package,
+    Trip,
+    Rentals,
+    Moto,
+    Auto,
+}
 
 private val servicesMiniList = listOf(
     ServiceMini(
         title = "Shuttle",
         descriptionEmoji = "??",
-        imageLink = "https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_384,w_576/v1731137185/assets/f0/e43a8e-662e-417e-abb6-a7b4c172028e/original/Shuttle.png"
+        imageLink = "https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_384,w_576/v1731137185/assets/f0/e43a8e-662e-417e-abb6-a7b4c172028e/original/Shuttle.png",
+        serviceType = ServiceType.Shuttle
     ),
     ServiceMini(
         title = "Package",
         descriptionEmoji = "📦",
-        imageLink = "https://mobile-content.uber.com/launch-experience/connect.png"
+        imageLink = "https://mobile-content.uber.com/launch-experience/connect.png",
+        serviceType = ServiceType.Package
     ),
     ServiceMini(
         title = "Trip",
         descriptionEmoji = "🚕",
-        imageLink = "https://mobile-content.uber.com/launch-experience/ride.png"
+        imageLink = "https://mobile-content.uber.com/launch-experience/ride.png",
+        serviceType = ServiceType.Trip
     ),
     ServiceMini(
         title = "Rentals",
         descriptionEmoji = "🚖",
         imageLink = "https://mobile-content.uber.com/uber_reserve/reserve_clock.png",
+        serviceType = ServiceType.Rentals
     ),
 )
 @Composable
