@@ -45,6 +45,10 @@ fun ActivityScreen(modifier: Modifier) {
                 NoUpComingTrips(modifier.padding(vertical = 16.dp))
             }
 
+            item {
+                Text("Past")
+            }
+
             items(activities.size) { index ->
                 val activity = activities[index]
                 ActivityItem(activity = activity)
@@ -126,7 +130,7 @@ fun RebookButton() {
         Icon(
             imageVector = Icons.Default.Replay,
             contentDescription = "Rebook",
-            modifier = Modifier.size(16.dp)
+            modifier = Modifier.padding(horizontal = 4.dp).size(16.dp)
         )
         Text("Rebook", style = MaterialTheme.typography.labelSmall)
     }
