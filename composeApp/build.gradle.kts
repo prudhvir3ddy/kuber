@@ -75,11 +75,12 @@ kotlin {
             implementation(projects.shared)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor3)
-
+            implementation(libs.ktor.client.core)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.java)
         }
     }
 }

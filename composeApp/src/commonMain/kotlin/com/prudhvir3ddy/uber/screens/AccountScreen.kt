@@ -147,7 +147,7 @@ fun Promos() {
         PromoItem(
             imageLink = "https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_715,w_1072/v1716848206/assets/d6/3d4751-d101-4894-b818-39305052b83f/original/New-promo-codes-page-images-%281%29.png",
             title = "You have multiple Promos",
-            description = "We'll automatically apply the one \n that saves you the most"
+            description = "We'll automatically apply the one that saves you the most"
         ),
         PromoItem(
             imageLink = "https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_368,w_552/v1666820385/assets/4b/c7a2f9-d364-475c-b2e8-eff1c74ead56/original/Rides-gift-card.png",
